@@ -1,6 +1,3 @@
-下面是完整 `README.md`，可以直接整份貼到 `static-cid-governance-open-reference` 的 repo 根目錄。
-
-````markdown
 # Static CID Governance Open Reference
 
 **Author / Maintainer:** Stephen Chia-Cheng Hsu  
@@ -404,5 +401,4 @@ Copyright © 2026 Stephen Chia-Cheng Hsu.
 
 See `LICENSE.md`, `NOTICE`, and `COPYRIGHT` for licensing and attribution details.
 
-```
 ```
