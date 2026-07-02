@@ -4,8 +4,7 @@ message: "If you use this project, please cite it as below."
 type: software
 authors:
   - family-names: Hsu
-    given-names: Stephen
-    name-particle: "許家誠"
+    given-names: Stephen Chia-Cheng
 email: chiacheng.hsu@owasp.org
 version: "1.1.1"
 date-released: "2026-07-02"
@@ -17,7 +16,7 @@ keywords:
   - static publishing
   - content governance
   - nonprofit technology
+  - file-as-NoSQL DB
   - public data
   - provenance
   - release gate
-  - offline editor
