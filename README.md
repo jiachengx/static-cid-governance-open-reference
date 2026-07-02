@@ -1,23 +1,79 @@
+下面是完整 `README.md`，可以直接整份貼到 `static-cid-governance-open-reference` 的 repo 根目錄。
+
+````markdown
 # Static CID Governance Open Reference
 
-**Author / Maintainer:** Stephen Chiacheng Hsu  
-**Chinese Name:** 許家誠
+**Author / Maintainer:** Stephen Chia-Cheng Hsu  
+**Chinese Name:** 許家誠  
 **Contact:** chiacheng.hsu@owasp.org  
+**GitHub:** https://github.com/jiachengx  
+**Public reference version:** v1.1.3  
+**DOI:** https://doi.org/10.5281/zenodo.21139438  
+
 ## GitHub repository
 
 Recommended public repository URL:
 
 ```text
 https://github.com/jiachengx/static-cid-governance-open-reference
+````
+
+## How to cite
+
+If you use or reference this project, please cite:
+
+> Hsu, Stephen Chia-Cheng. *Static CID Governance: An Open Reference Model for CID-Based Reference Consistency in Static Publishing*. Version v1.1.3. 2026. Zenodo. [https://doi.org/10.5281/zenodo.21139438](https://doi.org/10.5281/zenodo.21139438)
+
+GitHub repository:
+
+```text
+https://github.com/jiachengx/static-cid-governance-open-reference
 ```
 
-If you use or reference this project, please cite it using `CITATION.cff`.
+A `CITATION.cff` file is included for citation metadata.
 
-**Public reference version:** v1.1.0  
+## Overview
 
 Static CID Governance is an inventor-developed open reference model for CID-based reference consistency governance in static publishing and offline content governance environments.
 
 It is designed for non-medical use cases such as public websites, digital archives, nonprofit publishing, educational content, documentation systems, and static public-data portals. Its purpose is to make static publishing more predictable, verifiable, and governable without requiring a database-backed server.
+
+This project is not another CMS, not another data catalog, and not a database replacement. It is a lightweight governance pattern for trustworthy static publishing.
+
+## Why this project exists
+
+Many governance tools exist, but they are usually optimized for enterprise data platforms, software supply chains, digital preservation repositories, or static-site editing as separate concerns.
+
+Enterprise data governance platforms are powerful but often too heavy for nonprofit static publishing. Open-source metadata platforms focus on data catalogs and lineage. Software supply-chain frameworks focus on artifact integrity and build provenance. Digital preservation tools focus on long-term preservation. Static CMS tools focus on editing content.
+
+Static CID Governance focuses on the gap between these domains: how a small nonprofit, educational, public-interest, or digital archive team can maintain stable content identity, CID-based snapshots, public-safe projection, source-reference metadata, release-gate verification, inventory guarding, and governance-oriented changelog records without operating a heavy database-backed platform.
+
+This project is released as an open reference because hybrid governance patterns of this kind are still uncommon, and their value increases when they can be studied, audited, adapted, and improved by others.
+
+## File-as-NoSQL DB model
+
+Static CID Governance uses a **file-as-NoSQL DB** approach.
+
+It does not require a database server, and it does not depend on Git as the internal data store. Instead, structured files act as records, directories act as collections or namespaces, registries act as governance indexes, CID snapshots provide immutable content identities, manifests provide package integrity maps, and changelog records provide governance history.
+
+A release package, together with SHA256 checksums, CID snapshots, manifests, release notes, and release-gate validation, forms the version and integrity layer of the system.
+
+GitHub may be used as a public distribution, citation, and collaboration platform, but the governance model itself is designed to work without Git.
+
+In short:
+
+```text
+structured files   = governance records
+directories        = collections or namespaces
+registry           = governance index
+CID                = immutable content snapshot identity
+manifest           = package integrity map
+SHA256             = package and file integrity proof
+CHANGELOG          = governance history
+release gate       = consistency checker
+release package    = portable release unit
+public projection  = publishable read-only view
+```
 
 ## Relationship to FHIR
 
@@ -27,29 +83,58 @@ FHIR is referenced only as a mature source of design ideas. This project selecti
 
 In this project:
 
-- `stable_id` identifies which logical object is being referenced.
-- `route` identifies where the object is publicly published.
-- `cid` identifies a content-derived immutable snapshot.
-- `version` records digest metadata derived from the CID.
-- `reference` records whether a link tracks the latest object or pins a specific snapshot.
-- `public_view` exposes only public-safe data without leaking private registry or internal governance records.
+* `stable_id` identifies which logical object is being referenced.
+* `route` identifies where the object is publicly published.
+* `cid` identifies a content-derived immutable snapshot.
+* `version` records digest metadata derived from the CID.
+* `reference` records whether a link tracks the latest object or pins a specific snapshot.
+* `public_view` exposes only public-safe data without leaking private registry or internal governance records.
 
-This project does not claim ownership over FHIR, IPFS, Git, W3C PROV, content addressing, hashing, provenance, or versioned references. Its contribution is the governance composition: combining stable logical identity, content-derived snapshots, public-safe projection, source-reference metadata, registry policy, and release-gate verification into a reusable static publishing governance pattern.
+This project does not claim ownership over FHIR, IPFS, Git, W3C PROV, content addressing, hashing, provenance, or versioned references. Its contribution is the governance composition: combining stable logical identity, content-derived snapshots, public-safe projection, source-reference metadata, registry policy, release-gate verification, inventory guarding, and governance-oriented changelog practice into a reusable static publishing governance pattern.
+
+This project may be described as:
+
+```text
+FHIR-informed static publishing governance model
+```
+
+It should not be described as:
+
+```text
+FHIR Lite
+FHIR for non-medical platforms
+a non-medical edition of FHIR
+an official FHIR implementation
+a FHIR Implementation Guide
+a FHIR profile
+a FHIR derivative standard
+```
 
 ## What this repository contains
 
-- A neutral technical model for stable logical identity and content-derived CID snapshots.
-- A minimal reference implementation for canonical hashing, CID generation, public projection, reference verification, and inventory guarding.
-- A public Offline Editor reference structure using layered GPL/MIT licensing.
-- A small static-site example with public-safe JSON and reference metadata.
-- Mermaid diagrams and technical notes for review, teaching, and future revision.
-- Layered licensing for code, examples, schemas, policies, documentation, and templates.
+This repository contains:
+
+* A neutral technical model for stable logical identity and content-derived CID snapshots.
+* A minimal reference implementation for canonical hashing, CID generation, public projection, reference verification, and inventory guarding.
+* A public Offline Editor reference structure using layered GPL/MIT licensing.
+* A small static-site example with public-safe JSON and reference metadata.
+* Mermaid diagrams and technical notes for review, teaching, and future revision.
+* Layered licensing for code, examples, schemas, policies, documentation, and templates.
+* Public license statements for nonprofit, educational, public-interest, and digital archive use cases.
+* Governance-oriented changelog examples and release documentation.
 
 ## What this repository deliberately excludes
 
-This repository does not include organization-specific website content, press images, private registries, credential tools, account recovery workflows, internal account policies, production deployment secrets, or private governance logs.
+This repository does not include organization-specific website content, press images, private registries, credential tools, account recovery workflows, internal account policies, production deployment secrets, production deployment data, project-specific implementation records, or private governance logs.
 
-See [`docs/EXCLUDED_CONTENT.md`](docs/EXCLUDED_CONTENT.md) and [`docs/PUBLICATION_BOUNDARY.md`](docs/PUBLICATION_BOUNDARY.md).
+See:
+
+```text
+docs/EXCLUDED_CONTENT.md
+docs/PUBLICATION_BOUNDARY.md
+```
+
+These exclusions are intentional. The public reference model is meant to be reusable without exposing project-specific content, credentials, private governance data, or organization-specific operational details.
 
 ## Offline Editor licensing strategy
 
@@ -67,22 +152,30 @@ This project is released in this form because it was developed for nonprofit-ori
 
 This repository uses layered licensing:
 
-| Path | License | Intent |
-|---|---|---|
-| `tools/**` | GPL-3.0-or-later | Keep the core governance tools open when redistributed. |
-| `offline-editor/core/**` | GPL-3.0-or-later | Keep Offline Editor governance logic open when redistributed. |
-| `offline-editor/ui/**` | MIT | Allow broad reuse of standalone UI templates. |
-| `offline-editor/examples/**` | MIT | Allow broad reuse of neutral Offline Editor examples. |
-| `examples/**` | MIT | Allow broad reuse of the public static-site example. |
-| `schemas/**` | MIT | Allow broad implementation of the public model. |
-| `policies/**` | MIT | Allow adaptation of public policy templates. |
-| `tests/**` | MIT | Allow reuse of tests and smoke checks. |
-| `docs/**` | CC-BY-SA-4.0 | Allow sharing and adaptation of documentation with attribution and share-alike. |
-| root metadata files | See file headers | Administrative repository material. |
+| Path                         | License          | Intent                                                                          |
+| ---------------------------- | ---------------- | ------------------------------------------------------------------------------- |
+| `tools/**`                   | GPL-3.0-or-later | Keep the core governance tools open when redistributed.                         |
+| `offline-editor/core/**`     | GPL-3.0-or-later | Keep Offline Editor governance logic open when redistributed.                   |
+| `offline-editor/ui/**`       | MIT              | Allow broad reuse of standalone UI templates.                                   |
+| `offline-editor/examples/**` | MIT              | Allow broad reuse of neutral Offline Editor examples.                           |
+| `examples/**`                | MIT              | Allow broad reuse of the public static-site example.                            |
+| `schemas/**`                 | MIT              | Allow broad implementation of the public model.                                 |
+| `policies/**`                | MIT              | Allow adaptation of public policy templates.                                    |
+| `tests/**`                   | MIT              | Allow reuse of tests and smoke checks.                                          |
+| `docs/**`                    | CC-BY-SA-4.0     | Allow sharing and adaptation of documentation with attribution and share-alike. |
+| root metadata files          | See file headers | Administrative repository material.                                             |
 
-No patent license, trademark license, or endorsement is granted unless explicitly stated in a separate written license.
+The full license texts are provided under `LICENSES/`.
+
+No patent license is granted by this repository except to the extent expressly provided by the applicable open-source license for a specific file or component.
+
+For example, GPL-licensed components are licensed under the terms of `GPL-3.0-or-later`, including any patent-related terms contained in that license. MIT-licensed and CC-BY-SA-licensed materials are governed by their respective license terms.
+
+Publication of this repository does not waive any patent rights that may exist outside the scope of the applicable license.
 
 ## Quick start
+
+Run the reference tools against the included static-site example:
 
 ```bash
 python tools/cid_governance/cid_model.py examples/public-static-site/data/content.json
@@ -90,6 +183,17 @@ python tools/cid_governance/project_public_projection.py examples/public-static-
 python tools/cid_governance/verify_references.py examples/public-static-site/data/content.json
 python tools/cid_governance/inventory_guard.py --root examples/public-static-site --baseline policies/public-static-site-baseline.json
 python tests/smoke_test.py
+```
+
+The goal of the quick start is to demonstrate the governance loop:
+
+```text
+structured content
+→ CID snapshot
+→ public-safe projection
+→ reference verification
+→ inventory guard
+→ release readiness
 ```
 
 ## Core model
@@ -107,8 +211,198 @@ public_view    = public-safe projection without internal registry leakage
 
 The design goal is not to make static sites complicated. It is to make them predictable, verifiable, and easier to govern without requiring a database-backed server.
 
+## Reference modes
+
+Static CID Governance distinguishes between stable logical references and pinned snapshot references.
+
+A stable reference answers:
+
+```text
+Which logical object is this?
+```
+
+A snapshot reference answers:
+
+```text
+Which exact content version is this?
+```
+
+This separation allows static publishing systems to support both:
+
+```text
+track-latest references
+pinned-version references
+```
+
+This is important for public websites, digital archives, nonprofit publishing, and documentation systems where pages may update over time but citations, signatures, audit records, or source references must remain anchored to a specific content snapshot.
+
+## Public-safe projection
+
+A public projection is a read-only publishable view generated from governed content records.
+
+It may expose:
+
+```text
+stable_id
+route
+cid
+version snapshot
+public title
+public summary
+public category
+public reference metadata
+```
+
+It must not expose:
+
+```text
+private registry records
+internal governance logs
+credentials
+deployment secrets
+account recovery workflows
+organization-specific restricted content
+production-only operational records
+```
+
+The public projection is designed for static hosting, search engines, AI crawlers, accessibility, and long-term public readability.
+
+## Governance changelog
+
+This project treats changelog records as governance artifacts, not merely software release notes.
+
+A governance changelog should record:
+
+* what changed;
+* why it changed;
+* what governance risk was reduced;
+* whether identity behavior changed;
+* whether reference behavior changed;
+* whether public/private boundaries changed;
+* whether release-gate validation changed;
+* whether migration is required;
+* what future maintainers should know.
+
+The companion repository documents this pattern:
+
+```text
+https://github.com/jiachengx/static-cid-governance-changelog-pattern
+```
+
+## Public licensing statement
+
+Static CID Governance and its related Offline Editor reference components are publicly released by Stephen Chia-Cheng Hsu as an open reference implementation for nonprofit, educational, public-interest, digital archive, and static publishing use cases.
+
+This release is intended to help nonprofit organizations legally study, adopt, modify, and improve the model under clear open-source terms. The purpose is not to create a patent barrier or restrict public-interest adoption, but to provide a practical governance foundation for content integrity, offline editing, static publishing, reference consistency, and public/private data boundary protection.
+
+The project uses a layered licensing model:
+
+* Core governance tools are licensed under GPL-3.0-or-later.
+* Public examples, schemas, policies, templates, and sample static-site components are licensed under MIT.
+* Documentation, diagrams, reports, and teaching materials are licensed under CC BY-SA 4.0.
+
+This means nonprofit organizations may use the materials according to the applicable license terms, while preserving author attribution and respecting the openness requirements of each license.
+
+## Suggested repository topics
+
+Suggested GitHub topics:
+
+```text
+static-site
+content-addressing
+cid
+data-governance
+digital-archives
+nonprofit
+offline-editor
+release-gate
+provenance
+public-data
+governance
+open-source
+```
+
+## Suggested repository description
+
+```text
+CID-based reference consistency governance for static publishing and offline content governance.
+```
+
+## Scope and non-goals
+
+This project is intended to provide a reusable governance pattern and reference implementation.
+
+It is not intended to be:
+
+* a full enterprise data governance platform;
+* a database server;
+* a traditional CMS;
+* an official FHIR implementation;
+* a replacement for digital preservation systems;
+* a replacement for software supply-chain security frameworks;
+* a complete production deployment for any specific organization;
+* a repository for private registries, production logs, or organization-specific content.
+
+## Citation metadata
+
+This repository includes:
+
+```text
+CITATION.cff
+```
+
+Recommended citation:
+
+```text
+Hsu, Stephen Chia-Cheng. Static CID Governance: An Open Reference Model for CID-Based Reference Consistency in Static Publishing. Version v1.1.3. 2026. Zenodo. https://doi.org/10.5281/zenodo.21139438
+```
+
+## Release and DOI
+
+Current public reference release:
+
+```text
+v1.1.3
+```
+
+Zenodo DOI:
+
+```text
+https://doi.org/10.5281/zenodo.21139438
+```
+
+GitHub releases:
+
+```text
+https://github.com/jiachengx/static-cid-governance-open-reference/releases
+```
+
+Latest release:
+
+```text
+https://github.com/jiachengx/static-cid-governance-open-reference/releases/latest
+```
+
 ## Trademark and attribution notice
 
 HL7®, FHIR®, and related marks are trademarks of Health Level Seven International. This repository is independent and is not endorsed, certified, sponsored, or approved by HL7.
 
-FHIR is cited only for conceptual comparison and attribution. The project should be described as “FHIR-informed” or “inspired by selected FHIR concepts,” not as “FHIR for non-medical platforms” or “FHIR Lite.”
+FHIR is cited only for conceptual comparison and attribution. The project should be described as “FHIR-informed” or “inspired by selected FHIR concepts,” not as “FHIR for non-medical platforms,” “FHIR Lite,” or a non-medical edition of FHIR.
+
+## Author
+
+```text
+Stephen Chia-Cheng Hsu
+Chinese name: 許家誠
+Contact: chiacheng.hsu@owasp.org
+GitHub: https://github.com/jiachengx
+```
+
+## Copyright
+
+Copyright © 2026 Stephen Chia-Cheng Hsu.
+
+See `LICENSE.md`, `NOTICE`, and `COPYRIGHT` for licensing and attribution details.
+
+```
+```
