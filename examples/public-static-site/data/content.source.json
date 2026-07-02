@@ -1,0 +1,22 @@
+{
+  "items": [
+    {
+      "schema_version": "static-cid-governance-v1",
+      "type": "announcement",
+      "id": "ann-2026-001",
+      "route": "/announcements/2026/001/",
+      "title": "Example public announcement",
+      "summary": "A public-safe example announcement used to demonstrate stable identity and CID snapshots.",
+      "status": "published"
+    },
+    {
+      "schema_version": "static-cid-governance-v1",
+      "type": "article",
+      "id": "article-2026-001",
+      "route": "/articles/2026/001/",
+      "title": "Example derived article",
+      "summary": "A derived example object that cites the announcement snapshot without exposing private registry data.",
+      "status": "published"
+    }
+  ]
+}

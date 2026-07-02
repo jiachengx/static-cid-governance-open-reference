@@ -1,0 +1,10 @@
+Static CID Governance Open Reference
+Copyright © 2026 Stephen Hsu (許家誠). All rights reserved except as licensed.
+
+This repository is an independent open reference implementation of a CID-based reference consistency governance model for static publishing and offline content governance environments.
+
+It is not an HL7 project, not an implementation of HL7 FHIR, not a FHIR Implementation Guide, not a FHIR profile, and not a non-medical edition of FHIR.
+
+FHIR is referenced only as a mature source of selected design concepts, including logical identity, versioned reference, human-readable narrative, controlled coding, and provenance-style auditability.
+
+HL7®, FHIR®, and related marks are trademarks of Health Level Seven International. Use of these terms in this repository does not imply endorsement, approval, certification, sponsorship, or affiliation.

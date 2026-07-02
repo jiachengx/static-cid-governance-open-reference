@@ -1,0 +1,11 @@
+{
+  "stable_id": "note-001",
+  "route": "/notes/001/",
+  "title": "Neutral sample note",
+  "body": "This sample demonstrates offline drafting with a content-derived snapshot.",
+  "source_reference": {
+    "source_ref_cid": null,
+    "source_ref_id": null,
+    "source_ref_route": null
+  }
+}

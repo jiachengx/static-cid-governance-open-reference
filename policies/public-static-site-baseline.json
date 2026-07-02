@@ -1,0 +1,11 @@
+{
+  "baseline_version": "public-static-site-baseline-v1",
+  "required_files": [
+    "index.html",
+    "css/site.css",
+    "js/site.js",
+    "data/content.json"
+  ],
+  "allowed_public_extensions": [".html", ".css", ".js", ".json", ".txt", ".xml", ".svg", ".png", ".webp", ".ico"],
+  "maximum_json_bytes": 2097152
+}

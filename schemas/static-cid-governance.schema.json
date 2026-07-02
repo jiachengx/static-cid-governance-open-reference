@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/schemas/static-cid-governance.schema.json",
+  "title": "Static CID Governance Object",
+  "description": "Neutral public schema for CID-based reference consistency governance in static publishing environments.",
+  "type": "object",
+  "required": ["schema_version", "type", "id", "route", "title", "cid", "version", "reference"],
+  "properties": {
+    "schema_version": {"const": "static-cid-governance-v1"},
+    "type": {"type": "string", "pattern": "^[a-z][a-z0-9_-]{1,63}$"},
+    "id": {"type": "string", "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._-]{1,127}$"},
+    "route": {"type": "string", "pattern": "^/.*"},
+    "title": {"type": "string", "minLength": 1},
+    "summary": {"type": "string"},
+    "status": {"type": "string", "enum": ["draft", "review", "published", "archived"]},
+    "cid": {"type": "string", "pattern": "^cid:[a-z][a-z0-9_-]*:sha256-[a-f0-9]{64}$"},
+    "version": {
+      "type": "object",
+      "required": ["algorithm", "digest", "canonicalization"],
+      "properties": {
+        "algorithm": {"const": "sha256"},
+        "digest": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "previous_digest": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "canonicalization": {"const": "static-cid-canonical-json-v1"}
+      },
+      "additionalProperties": true
+    },
+    "reference": {
+      "type": "object",
+      "required": ["stable_ref", "snapshot_cid", "policy"],
+      "properties": {
+        "stable_ref": {"type": "string", "pattern": "^[a-z][a-z0-9_-]*:[a-zA-Z0-9][a-zA-Z0-9._-]{1,127}$"},
+        "snapshot_cid": {"type": "string", "pattern": "^cid:[a-z][a-z0-9_-]*:sha256-[a-f0-9]{64}$"},
+        "policy": {"type": "string", "enum": ["track-latest", "pinned-version"]},
+        "source": {"type": "string"}
+      },
+      "additionalProperties": true
+    },
+    "source_ref": {
+      "type": "object",
+      "properties": {
+        "stable_ref": {"type": "string"},
+        "snapshot_cid": {"type": "string"},
+        "route": {"type": "string"},
+        "version_digest": {"type": "string"}
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

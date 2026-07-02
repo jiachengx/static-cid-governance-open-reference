@@ -1,0 +1,43 @@
+{
+  "policy_version": "static-cid-governance-policy-v1",
+  "hashing": {
+    "algorithm": "sha256",
+    "canonicalization": "static-cid-canonical-json-v1",
+    "exclude_fields": [
+      "cid",
+      "version",
+      "reference.snapshot_cid",
+      "source_ref.snapshot_cid",
+      "governance",
+      "meta"
+    ]
+  },
+  "reference_policies": ["track-latest", "pinned-version"],
+  "public_projection": {
+    "allow_fields": [
+      "schema_version",
+      "type",
+      "id",
+      "route",
+      "title",
+      "summary",
+      "status",
+      "cid",
+      "version.digest",
+      "reference.stable_ref",
+      "reference.snapshot_cid",
+      "reference.policy",
+      "source_ref.stable_ref",
+      "source_ref.snapshot_cid",
+      "source_ref.route",
+      "source_ref.version_digest"
+    ],
+    "deny_fields": [
+      "governance",
+      "credentials",
+      "secrets",
+      "private_registry_path",
+      "release_gate_internal_log"
+    ]
+  }
+}

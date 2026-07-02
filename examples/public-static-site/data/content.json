@@ -1,0 +1,50 @@
+{
+  "items": [
+    {
+      "schema_version": "static-cid-governance-v1",
+      "type": "announcement",
+      "id": "ann-2026-001",
+      "route": "/announcements/2026/001/",
+      "title": "Example public announcement",
+      "summary": "A public-safe example announcement used to demonstrate stable identity and CID snapshots.",
+      "status": "published",
+      "cid": "cid:announcement:sha256-d03c2f116173a9be88a89dca47bd0a801ce051ca4f58d9b5a8dfc4525ce386f7",
+      "version": {
+        "algorithm": "sha256",
+        "digest": "d03c2f116173a9be88a89dca47bd0a801ce051ca4f58d9b5a8dfc4525ce386f7",
+        "canonicalization": "static-cid-canonical-json-v1"
+      },
+      "reference": {
+        "stable_ref": "announcement:ann-2026-001",
+        "snapshot_cid": "cid:announcement:sha256-d03c2f116173a9be88a89dca47bd0a801ce051ca4f58d9b5a8dfc4525ce386f7",
+        "policy": "track-latest"
+      }
+    },
+    {
+      "schema_version": "static-cid-governance-v1",
+      "type": "article",
+      "id": "article-2026-001",
+      "route": "/articles/2026/001/",
+      "title": "Example derived article",
+      "summary": "A derived example object that cites the announcement snapshot without exposing private registry data.",
+      "status": "published",
+      "cid": "cid:article:sha256-10997a4675c002eb685201c54a59639dae9924f38bd94ce33497b79a47772748",
+      "version": {
+        "algorithm": "sha256",
+        "digest": "10997a4675c002eb685201c54a59639dae9924f38bd94ce33497b79a47772748",
+        "canonicalization": "static-cid-canonical-json-v1"
+      },
+      "reference": {
+        "stable_ref": "article:article-2026-001",
+        "snapshot_cid": "cid:article:sha256-10997a4675c002eb685201c54a59639dae9924f38bd94ce33497b79a47772748",
+        "policy": "track-latest"
+      },
+      "source_ref": {
+        "stable_ref": "announcement:ann-2026-001",
+        "snapshot_cid": "cid:announcement:sha256-d03c2f116173a9be88a89dca47bd0a801ce051ca4f58d9b5a8dfc4525ce386f7",
+        "route": "/announcements/2026/001/",
+        "version_digest": "d03c2f116173a9be88a89dca47bd0a801ce051ca4f58d9b5a8dfc4525ce386f7"
+      }
+    }
+  ]
+}
