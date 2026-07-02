@@ -1,6 +1,7 @@
 # Static CID Governance Open Reference
 
-**Author / Maintainer:** Stephen Hsu (許家誠)  
+**Author / Maintainer:** Stephen Chiacheng Hsu  
+**Chinese Name:** 許家誠
 **Contact:** chiacheng.hsu@owasp.org  
 ## GitHub repository
 
